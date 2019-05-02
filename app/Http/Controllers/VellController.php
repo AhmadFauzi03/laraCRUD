@@ -93,5 +93,11 @@ class VellController extends Controller
    
         return redirect('/')->with('success', 'Books has been deleted Successfully');
     }
+
+    public function view($id)
+    {
+      $buku = Buku::find($id);
+        return view('view', ['buku' => $buku]);
+    }
  
 }

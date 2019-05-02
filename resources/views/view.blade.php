@@ -1,5 +1,4 @@
 @include('header')
-<div class="container">
   <table class="table table-hover">
   <thead>
     <tr class="text-center">
@@ -8,12 +7,9 @@
       <th scope="col">PENERBIT</th>
       <th scope="col">TAHUN TERBIT</th>
       <th scope="col">PENGARANG</th>
-      <th scope="col">AKSI</th>
     </tr>
   </thead>
   <tbody>
-    @if(count($buku) > 0)
-      @foreach($buku->all() as $buku)
 
       <tr class="table-light text-center">
         <td>{{ $buku->id }}</td>
@@ -23,24 +19,11 @@
         <td>{{ $buku->pengarang }}</td>
         <td>
         <div class="d-flex justify-content-center">
-        <!-- <div class="col-2"> -->
-        <a href="{{ url("/view/{$buku->id}") }}" class="btn btn-outline-warning">view</a>
-        <a href="{{ route('buku.edit',$buku->id)}}" class="btn btn-outline-info">UPDATE</a>
-         <!-- </div> -->
-         <!-- <div class="col-2"> -->
-         <form action="{{ route('buku.destroy', $buku->id)}}" method="post">
-          @csrf
-          @method('DELETE')
-         <button class="btn btn-outline-danger" type="submit">Delete</button>
-         </form>
-          <!-- </div> -->
           </div>
           </td>
           </tr>
-         @endforeach
-                @endif
             </tbody>
         </table>
-    </div>
-</div>
+
+        <a href="{{ url("/") }}" class="btn btn-outline-success">back</a>
 @include('footer')
