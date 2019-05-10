@@ -23,17 +23,13 @@
         <td>{{ $buku->pengarang }}</td>
         <td>
         <div class="d-flex justify-content-center">
-        <!-- <div class="col-2"> -->
         <a href="{{ url("/view/{$buku->id}") }}" class="btn btn-outline-warning">view</a>
         <a href="{{ route('buku.edit',$buku->id)}}" class="btn btn-outline-info">UPDATE</a>
-         <!-- </div> -->
-         <!-- <div class="col-2"> -->
          <form action="{{ route('buku.destroy', $buku->id)}}" method="post">
           @csrf
           @method('DELETE')
          <button class="btn btn-outline-danger" type="submit">Delete</button>
          </form>
-          <!-- </div> -->
           </div>
           </td>
           </tr>
