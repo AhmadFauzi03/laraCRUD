@@ -15,3 +15,9 @@ Route::resource('buku','VellController');
 Route::get('/','VellController@home');
 Route::post('/buku/create','VellController@store');
 Route::get('/view/{id}','VellController@view');
+Route::group(['middleware' => ['auth']], function(){
+	Route::get('/home','HomeControllere@index');
+});
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
